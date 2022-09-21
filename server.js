@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config();
+const fetch = require('node-fetch')
 const compression = require('compression')
 const bodyParser = require('body-parser');
 const cors = require('cors');

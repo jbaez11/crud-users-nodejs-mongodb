@@ -13,6 +13,16 @@ function addUsers(users){
    return myUsers;
 }
 
+function addManyUsers(users){
+    usersModel.insertMany(users).then(function(){
+        console.log("Data inserted")  // Success
+        return users
+    }).catch(function(error){
+        return console.log(error)      // Failure
+    });; 
+     ;
+ }
+
 async function updateUsers(id,name,username,email,address,phone,website,company){
    
     foundUsers = await usersModel.findOne({_id : id});
@@ -42,4 +52,5 @@ module.exports = {
    add: addUsers,
    updateText: updateUsers,
    remove:removeUsers,
+   addManyUsers
 }

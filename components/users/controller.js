@@ -1,4 +1,25 @@
 const store = require('./store');
+const fetch = require('node-fetch')
+
+
+function postInsertUsers(users){
+    return new Promise((resolve,reject) => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => {
+            if(!json){
+                console.log('[Message Controller] users vacio');
+                reject('Los datos son incorrectos');
+                return false;
+            }
+    
+            store.addManyUsers(json);
+            resolve(json);
+        })
+        
+        
+    })
+}
 
 function getUsers(){
     return new Promise((resolve,reject) => {
@@ -63,6 +84,7 @@ function deleteUsers(id){
     });
 }
 module.exports = {
+    postInsertUsers,
     getUsers,
     addUsers,
     updateUsers,

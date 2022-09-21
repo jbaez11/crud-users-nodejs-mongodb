@@ -26,6 +26,17 @@ router.post('/', function(req,res){
         })
 });
 
+router.post('/api', function(req,res){
+   
+    controller.postInsertUsers()
+        .then((users) => {
+            response.success(req,res, users, 201 );
+        })
+        .catch(e => {
+            response.error(req,res,'Informacion Invalida', 400, 'error en el controller post');
+        })
+});
+
 router.patch('/:id', function(req,res){
    
     controller.updateUsers(req.params.id, req.body.name, req.body.username,req.body.email,req.body.address,req.body.phone,req.body.website,req.body.company)

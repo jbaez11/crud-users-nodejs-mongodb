@@ -19,6 +19,7 @@
     "mongodb": "^3.6.4",
     "mongoose": "^5.12.2",
     "mongoose-int32": "^0.4.1",
+    "node-fetch": "^2.6.1",
     "req": "^0.1.4",
     "utf8": "^3.0.0"
   }
